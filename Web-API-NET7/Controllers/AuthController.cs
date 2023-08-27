@@ -75,7 +75,7 @@ namespace Web_API_NET7.Controllers
 
             string token = CreateToken(user);
 
-            var refreshToken = GenerateRefreshToken();
+             var refreshToken = GenerateRefreshToken();
             SetRefreshToken(refreshToken);
 
             return Ok(token);

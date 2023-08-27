@@ -96,7 +96,7 @@ namespace Web_API_NET7.Controllers
                     return new ReceiveCar { status = false, Note = "carcare null" };
                 }
 
-                string Cmd = $"INSERT INTO carcare(customer,car_type,date_receive,status) " +
+                string Cmd = $"INSERT INTO carcare(customer,car_type,date_receive,car_status) " +
                       $"VALUES('{carcare.customer}','{carcare.car_type}','{DateNow}','Working')";
                 bool result = await db.ExecuteNonQueryAsyncData(Cmd);
                 if (!result)
@@ -126,8 +126,8 @@ namespace Web_API_NET7.Controllers
                 }
 
                 string Cmd = $"UPDATE  carcare SET " +
-                    $"date_sent ='{DateNow}',status='close' " +
-                    $"WHERE id = '{carcare.Id}' AND status ='Working'";
+                    $"date_sent ='{DateNow}',car_status='close' " +
+                    $"WHERE id = '{carcare.Id}' AND car_status ='Working'";
 
                 bool result = await db.ExecuteNonQueryAsyncData(Cmd);
                 if (!result)
